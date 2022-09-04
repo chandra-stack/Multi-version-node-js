@@ -6,13 +6,16 @@ on :
   pull_request : 
     branches : ["master"]  
 jobs:
-  node-environment:
+  message:
     runs-on : [ubuntu-latest]
     steps :
      - uses : actions/checkout@v3
      - name : Setting up node js on ubuntu
-     - uses : actions/setup-node@v3
-     - name : running abc statement
-       run : |
-        echo "hello abc"
+     
+     #- uses : actions/setup-node@v3
+     
+     #- name : running abc statement
+     
+      # run : |
+       # echo "hello abc"
       
