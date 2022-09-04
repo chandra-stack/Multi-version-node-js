@@ -17,7 +17,8 @@ jobs:
         node-version : 16
         
     - run : echo "hello abc"
-    - name : checking npm version.
+    
+      name : checking npm version.
     - run : npm -v
 
 
