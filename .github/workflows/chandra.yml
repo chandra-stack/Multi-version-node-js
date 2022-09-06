@@ -23,7 +23,7 @@ jobs:
     
       name : checking npm version.
     - run : npm -v
-    - run : npm install
+    #- run : npm install
     
 
 
