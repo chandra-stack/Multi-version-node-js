@@ -23,7 +23,7 @@ jobs:
     
       name : checking npm version.
     - run : npm -v
-    - run : npm ci
+    - run : npm@5 ci
     
 
 
