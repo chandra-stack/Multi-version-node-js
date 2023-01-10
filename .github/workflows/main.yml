@@ -27,7 +27,7 @@ jobs:
     - uses: actions/checkout@v2
       name: printing env message
     - run: |
-        echo "from dev environemnt"
+        echo "from ${{ inputs.value }} environemnt"
         echo $name
 
     
