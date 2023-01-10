@@ -10,7 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       name: printing env message
-    - run: echo "from dev environemnt"
+    - run: |
+        echo "from dev environemnt"
+        echo ${{env.MY_NAME}}
   qa-job:
     needs: dev-job
     runs-on: ubuntu-latest
