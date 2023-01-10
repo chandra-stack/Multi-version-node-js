@@ -20,5 +20,7 @@ jobs:
     environment: QA
     steps:
     - uses: actions/checkout@v2
-    - run: echo "from qa environemnt"
+    - run: |
+        echo "from qa environemnt"
+        echo $name
     
