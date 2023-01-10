@@ -12,7 +12,7 @@ jobs:
       name: printing env message
     - run: |
         echo "from dev environemnt"
-        echo ${{env.MY_NAME}}
+        echo $MY_NAME
   qa-job:
     needs: dev-job
     runs-on: ubuntu-latest
