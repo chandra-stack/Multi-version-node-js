@@ -3,28 +3,31 @@ name: Testing multiple environment
 on:
   workflow_dispatch:
     inputs:
-      environment:
+      value:
+        type: string
+        description: Confirm the environment
+        required: true
+      environment-value:
         type: environment
         description: Select the environment
+      choice:
+        type: choice
+        description: Make a choice
+        options:
+        - foo
+        - bar
+        - baz
 env:
   name: ${{vars.MY_NAME}}
 jobs:
-  dev-job:
+  job:
     runs-on: ubuntu-latest
-    environment: DEV
+    environment: ${{ inputs.value }}
     steps:
     - uses: actions/checkout@v2
       name: printing env message
     - run: |
         echo "from dev environemnt"
         echo $name
-  qa-job:
-    needs: dev-job
-    runs-on: ubuntu-latest
-    environment: QA
-    steps:
-    - uses: actions/checkout@v2
-    - run: |
-        echo "from qa environemnt"
-        echo $name
+
     
