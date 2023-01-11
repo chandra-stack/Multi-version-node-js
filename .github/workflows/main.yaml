@@ -1,0 +1,35 @@
+name: Testing multiple environment 
+
+on:
+  workflow_dispatch:
+    inputs:
+      value:
+        type: string
+        description: Confirm the environment
+        required: true
+      environment-value:
+        type: environment
+        description: Select the environment
+      choice:
+        type: choice
+        description: Make a choice
+        options:
+        - foo
+        - bar
+        - baz
+env:
+  name: ${{vars.MY_NAME}}
+  uid: ${{ secrets.UID }}
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.value }}
+    steps:
+    - uses: actions/checkout@v2
+      name: printing env message
+    - run: |
+        echo "from ${{ inputs.value }} environemnt"
+        echo $name
+        echo $uid
+
+    
