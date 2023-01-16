@@ -6,7 +6,7 @@ on:
       environment-value:
         type: environment
         description: Select the environment
-        
+        required: true  
 env:
   name: ${{vars.MY_NAME}}
   uid: ${{ secrets.UID }}
