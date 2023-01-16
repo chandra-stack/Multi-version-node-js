@@ -23,7 +23,7 @@ env:
 jobs:
   job:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.value }}
+    environment: ${{ inputs.environment-value }}
     steps:
     - uses: actions/checkout@v2
       name: printing env message
