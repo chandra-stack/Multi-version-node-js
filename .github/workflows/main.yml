@@ -3,32 +3,22 @@ name: Testing multiple environment
 on:
   workflow_dispatch:
     inputs:
-      value:
-        type: string
-        description: Confirm the environment
-        required: true
-      environment-value:
+      Deploy-to:
         type: environment
         description: Select the environment
-      choice:
-        type: choice
-        description: Make a choice
-        options:
-        - foo
-        - bar
-        - baz
+        required: true  
 env:
   name: ${{vars.MY_NAME}}
   uid: ${{ secrets.UID }}
 jobs:
   job:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.value }}
+    environment: ${{ inputs.Deploy-to }}
     steps:
     - uses: actions/checkout@v2
       name: printing env message
     - run: |
-        echo "from ${{ inputs.value }} environemnt"
+        echo "from ${{ inputs.Deploy-to }} environment"
         echo $name
         echo $uid
 
