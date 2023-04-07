@@ -21,5 +21,7 @@ jobs:
         echo "from ${{ inputs.Deploy-to }} environment"
         echo $name
         echo $uid
-
+      if : ${{ inputs.Deploy-to == 'UAT' }}
+    - run: |
+        echo "from UAT"
     
