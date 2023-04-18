@@ -23,6 +23,12 @@ jobs:
         echo $uid
       if: ${{inputs.Deploy-to =='DEV'}}
     - run: echo ${{env.name}}
+      name: second name
+    - run: echo ${{env.name}}
+      name: third name
+    - run: echo ${{env.name}}
+      name: fourth name
+    - run: echo ${{env.name}}
   devjob:
     needs: prints
     runs-on: ubuntu-latest
