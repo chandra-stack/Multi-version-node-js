@@ -24,6 +24,7 @@ jobs:
   
   devjob:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.Deploy-to }}
     if: ${{inputs.Deploy-to =='DEV'}}
     steps:
     - run: echo ${{env.name}}
