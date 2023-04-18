@@ -23,6 +23,7 @@ jobs:
         echo $uid
   
   devjob:
+    needs: prints
     runs-on: ubuntu-latest
     environment: ${{ inputs.Deploy-to }}
     if: ${{inputs.Deploy-to =='DEV'}}
