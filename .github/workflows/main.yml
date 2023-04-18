@@ -21,7 +21,8 @@ jobs:
         echo "from ${{ inputs.Deploy-to }} environment"
         echo $name
         echo $uid
-  
+      if: ${{inputs.Deploy-to =='DEV'}}
+    - run: echo ${{env.name}}
   devjob:
     needs: prints
     runs-on: ubuntu-latest
