@@ -27,7 +27,7 @@ jobs:
     if: ${{inputs.Deploy-to =='DEV'}}
     steps:
     - run: |
-        echo ${{env.name}}
+        echo ${{name}}
         
 
 
