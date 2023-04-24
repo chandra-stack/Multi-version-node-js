@@ -17,5 +17,6 @@ jobs:
       name: validation
     - run: |
         cd C:\Users\runneradmin\AppData\Local\Microsoft\dotnet\
-        dir 
+        dir
+        dotnet --version
         
