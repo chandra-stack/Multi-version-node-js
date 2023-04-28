@@ -33,7 +33,7 @@ jobs:
     needs: prints
     runs-on: ubuntu-latest
     environment: ${{ inputs.Deploy-to }}
-    if: ${{inputs.Deploy-to =='DEV' && github.ref == 'master'}}
+    if: ${{inputs.Deploy-to =='DEV' && github.ref_name == 'master'}}
     steps:
     - run: echo ${{env.name}}
         
