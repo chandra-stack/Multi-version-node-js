@@ -31,11 +31,8 @@ jobs:
     - run: echo ${{github.ref_name}}
   devjob:
     needs: prints
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.Deploy-to }}
     if: ${{inputs.Deploy-to =='DEV' && contains(github.ref_name,'sprint')}}
-    steps:
-    - run: echo ${{env.name}}
+    uses: ./.github/workflows/dotnet-test.yml
         
 
 
