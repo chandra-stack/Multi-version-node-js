@@ -28,7 +28,7 @@ jobs:
       name: third name
     - run: echo ${{env.name}}
       name: fourth name
-    - run: echo ${{env.name}}
+    - run: echo ${{github.ref_name}}
   devjob:
     needs: prints
     runs-on: ubuntu-latest
