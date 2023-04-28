@@ -33,7 +33,7 @@ jobs:
     needs: prints
     runs-on: ubuntu-latest
     environment: ${{ inputs.Deploy-to }}
-    if: ${{inputs.Deploy-to =='DEV' && contains(github.ref_name,'sprint')}}
+    if: ${{ contains(github.ref_name,'sprint') }}
     steps:
     - run: echo ${{env.name}}
         
