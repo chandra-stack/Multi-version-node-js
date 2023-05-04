@@ -21,6 +21,7 @@ jobs:
         echo "from ${{ inputs.Deploy-to }} environment"
         echo $name
         echo $uid
+      name: print names
       if: ${{inputs.Deploy-to =='DEV'}}
     - run: echo ${{env.name}}
       name: second name
