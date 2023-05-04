@@ -23,8 +23,8 @@ jobs:
         echo $uid
         
       name: print names
-      if: ${{inputs.Deploy-to =='DEV'}}
     - uses: actions/setup-node@v1
+      if: ${{inputs.Deploy-to =='DEV'}}
       with:
         node-version: '10.x'
         
