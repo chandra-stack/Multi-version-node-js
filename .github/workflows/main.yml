@@ -21,8 +21,13 @@ jobs:
         echo "from ${{ inputs.Deploy-to }} environment"
         echo $name
         echo $uid
+        
       name: print names
       if: ${{inputs.Deploy-to =='DEV'}}
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+        
     - run: echo ${{env.name}}
       name: second name
     - run: echo ${{env.name}}
