@@ -26,4 +26,4 @@ jobs:
         cd C:\Users\runneradmin\AppData\Local\Microsoft\dotnet\
         dir
         dotnet --version
-        
+        echo ${{env.numbering}}
