@@ -33,6 +33,8 @@ jobs:
     needs: prints
     if: ${{inputs.Deploy-to =='DEV' && contains(github.ref_name,'sprint')}}
     uses: ./.github/workflows/dotnet-test.yml
+    with:
+      Deploy-to: ${{inputs.Deploy-to}}
 
         
 
