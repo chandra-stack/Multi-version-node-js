@@ -13,6 +13,7 @@ env:
 jobs:
   prints:
     runs-on: windows-latest
+    environment: ${{ inputs.Deploy-to }}
     steps:
     - uses: actions/checkout@v2
       name: dotnet installation
