@@ -3,7 +3,13 @@ name: Testing DOtnet environment
 on: 
   workflow_call: 
   workflow_dispatch:
-
+    inputs:
+      Deploy-to:
+        type: environment
+        description: Select the environment
+        required: true
+env:
+  numbering: ${{ vars.CM_INSTANCE }}
 jobs:
   prints:
     runs-on: windows-latest
