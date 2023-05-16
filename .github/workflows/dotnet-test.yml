@@ -9,7 +9,7 @@ on:
         description: Select the environment
         required: true
 env:
-  numbering: ${{ vars.CM_INSTANCE }}
+  numbering: ${{ vars.number }}
 jobs:
   prints:
     runs-on: windows-latest
