@@ -8,6 +8,9 @@ on:
         type: environment
         description: Select the environment
         required: true
+      chandra:
+        description: Select the chandra variable
+        required: true
 env:
   numbering: ${{ vars.number }}
 jobs:
