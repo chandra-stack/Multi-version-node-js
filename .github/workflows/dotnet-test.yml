@@ -2,13 +2,9 @@ name: Testing DOtnet environment
 
 on: 
   workflow_call: 
-  workflow_dispatch:
     inputs:
-      Deploy-to:
-        type: environment
-        description: Select the environment
-        required: true
       chandra:
+        type: string
         description: Select the chandra variable
         required: true
 env:
