@@ -21,14 +21,21 @@ jobs:
         echo "from ${{ inputs.Deploy-to }} environment"
         echo $name
         echo $uid
-  
+      if: ${{inputs.Deploy-to =='DEV'}}
+    - run: echo ${{env.name}}
+      name: second name
+    - run: echo ${{env.name}}
+      name: third name
+    - run: echo ${{env.name}}
+      name: fourth name
+    - run: echo ${{github.ref_name}}
   devjob:
     needs: prints
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.Deploy-to }}
-    if: ${{inputs.Deploy-to =='DEV'}}
-    steps:
-    - run: echo ${{env.name}}
+    uses: ./.github/workflows/dotnet-test.yml
+    with:
+      chandra: "chandru"
+   
+
         
 
 

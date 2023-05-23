@@ -1,0 +1,29 @@
+name: Testing DOtnet environment 
+
+on: 
+  workflow_call: 
+    inputs:
+      chandra:
+        type: string
+        description: Select the chandra variable
+        required: true
+env:
+  numbering: ${{ vars.number }}
+jobs:
+  prints:
+    runs-on: windows-latest
+    environment: ${{ inputs.Deploy-to }}
+    steps:
+    - uses: actions/checkout@v2
+      name: dotnet installation
+    - uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: |
+          5.x
+          3.1.x
+      name: validation
+    - run: |
+        cd C:\Users\runneradmin\AppData\Local\Microsoft\dotnet\
+        dir
+        dotnet --version
+        echo ${{env.numbering}}
