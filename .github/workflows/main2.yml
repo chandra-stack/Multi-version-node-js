@@ -1,4 +1,4 @@
-name: Testing multiple environment 
+name: Testing  
 
 on:
   workflow_dispatch:
