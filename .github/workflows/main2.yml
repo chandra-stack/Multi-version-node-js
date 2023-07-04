@@ -1,0 +1,48 @@
+name: Testing multiple environment 
+
+on:
+  workflow_dispatch:
+    inputs:
+      Deploy-to:
+        type: environment
+        description: Select the environment
+        required: true  
+env:
+  name: ${{vars.MY_NAME}}
+  uid: ${{ secrets.UID }}
+jobs:
+  prints:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.Deploy-to }}
+    steps:
+    - uses: actions/checkout@v2
+      name: printing env message
+    - run: |
+        echo "from ${{ inputs.Deploy-to }} environment"
+        echo $name
+        echo $uid
+        
+      name: print names
+    - uses: actions/setup-node@v1
+      if: ${{inputs.Deploy-to =='DEV'}}
+      with:
+        node-version: '10.x'
+        
+    - run: echo ${{env.name}}
+      name: second name
+    - run: echo ${{env.name}}
+      name: third name
+    - run: echo ${{env.name}}
+      name: fourth name
+    - run: echo ${{github.ref_name}}
+  devjob:
+    needs: prints
+    if: ${{inputs.Deploy-to =='DEV' || inputs.Deploy-to =='QA'}}
+    uses: ./.github/workflows/dotnet-test.yml
+
+        
+
+
+
+
+    
