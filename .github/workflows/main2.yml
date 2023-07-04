@@ -39,12 +39,13 @@ jobs:
   devjob:
     needs: prints
     runs-on: ubuntu-latest
+    environment: ${{ inputs.Deploy-to }}
     if: ${{inputs.Deploy-to =='DEV' || inputs.Deploy-to =='QA'}}
     #uses: ./.github/workflows/dotnet-test.yml
     steps:
       - uses: actions/checkout@v2
         name: test bottle names
-      - run: ${env.bottle}
+      - run: ${{ env.bottle }}
 
         
 
