@@ -21,8 +21,8 @@ jobs:
     - run: |
         echo "from ${{ inputs.Deploy-to }} environment"
         echo $name
-        echo $uid
-        
+        echo $
+      if: always()  
       name: print names
     - uses: actions/setup-node@v1
       if: ${{inputs.Deploy-to =='DEV'}}
