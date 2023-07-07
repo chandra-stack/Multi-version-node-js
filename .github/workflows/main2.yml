@@ -39,6 +39,8 @@ jobs:
     if: ${{inputs.Deploy-to =='DEV' || inputs.Deploy-to =='QA'}}
     #uses: ./.github/workflows/dotnet-test.yml
     steps:
+      - name: The job has failed
+        if: ${{ failure() }}
       - uses: actions/checkout@v2
         name: test bottle names
       - run: ${{ env.bottle }}
