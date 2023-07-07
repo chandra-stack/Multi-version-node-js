@@ -18,7 +18,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       name: printing env message
-    - run: mvn deploy  
+    - run: mvn deploy 
+      if: ${{ failure() }}
       name: print names
     - uses: actions/setup-node@v1
       if: ${{inputs.Deploy-to =='DEV'}}
@@ -32,15 +33,3 @@ jobs:
     - run: echo ${{env.name}}
       name: fourth name
     - run: echo ${{github.ref_name}}
-  devjob:
-    needs: prints
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.Deploy-to }}
-    if: ${{inputs.Deploy-to =='DEV' || inputs.Deploy-to =='QA'}}
-    #uses: ./.github/workflows/dotnet-test.yml
-    steps:
-      - name: The job has failed
-        if: ${{ failure() }}
-      - uses: actions/checkout@v2
-        name: test bottle names
-      - run: ${{ env.bottle }}
