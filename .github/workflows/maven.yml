@@ -10,4 +10,6 @@ jobs:
     - uses: actions/checkout@v2
       name: Maven command
     - run: mvn deploy
+      name: additional commands
+    - run: echo "chandru"
       
