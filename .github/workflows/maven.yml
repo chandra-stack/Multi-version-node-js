@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       name: Maven command
-    - run: mvn deploy
+    - run: ./test.ps1
       name: additional commands
       if: ${{ failure() || success() }}
     - run: echo "chandru"
