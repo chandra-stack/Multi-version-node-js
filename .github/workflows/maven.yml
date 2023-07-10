@@ -10,7 +10,4 @@ jobs:
     - uses: actions/checkout@v2
       name: Maven command
     - run: ./test.ps1
-      name: additional commands
-      if: ${{ failure() || success() }}
-    - run: echo "chandru"
       
