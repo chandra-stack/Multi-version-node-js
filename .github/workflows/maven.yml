@@ -8,6 +8,13 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-      name: Maven command
+  Test2:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: master
+        repository: chandra-stack/caller-repo
+      name: additional cmd test
     - run: ./test.ps1
       
