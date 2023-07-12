@@ -19,17 +19,11 @@ jobs:
     - uses: actions/checkout@v2
       name: printing env message
     - run: mvn deploy 
-      if: ${{ failure() }}
-      name: print names
-    - uses: actions/setup-node@v1
-      if: ${{inputs.Deploy-to =='DEV'}}
-      with:
-        node-version: '10.x'
-        
-    - run: echo ${{env.name}}
-      name: second name
-    - run: echo ${{env.name}}
-      name: third name
-    - run: echo ${{env.name}}
-      name: fourth name
-    - run: echo ${{github.ref_name}}
+  print2:
+    if: ${{ always() }}
+    needs: [prints]
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.Deploy-to }}
+    steps:
+    - run: echo "chandra"
+    
