@@ -21,7 +21,7 @@ jobs:
       name: printing env message
     - run: mvn deploy 
   print2:
-    if: ${{ always() }}
+    if: ${{ failure() || success() }}
     needs: [prints]
     runs-on: ubuntu-latest
     environment: ${{ inputs.Deploy-to }}
