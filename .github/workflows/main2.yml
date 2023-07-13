@@ -13,6 +13,7 @@ env:
   bottle: ${{vars.BOTTLE}}
 jobs:
   prints:
+    if: ${{ inputs.Deploy-to= "DEV" }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.Deploy-to }}
     steps:
