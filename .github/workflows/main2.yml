@@ -22,8 +22,8 @@ jobs:
     environment: ${{ inputs.Deploy-to }}
     steps:
     - uses: actions/checkout@v2
-      name: printing env message
-    - run: ${{ inputs.Name }}
+      name: printing env values
+    - run: ${{ env.name }}
   print2:
     if: ${{ failure() || success() }}
     needs: [prints]
