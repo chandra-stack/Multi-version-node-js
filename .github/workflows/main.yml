@@ -37,8 +37,7 @@ jobs:
     - run: echo ${{github.ref_name}}
   devjob:
     needs: prints
-    if: ${{inputs.Deploy-to =='DEV' && contains(github.ref_name,'sprint')}}
-    uses: ./.github/workflows/dotnet-test.yml
+    uses: ./.github/workflows/main2.yml
 
         
 
