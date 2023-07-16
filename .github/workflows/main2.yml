@@ -17,7 +17,7 @@ env:
   bottle: ${{vars.BOTTLE}}
 jobs:
   prints:
-    if: ${{ inputs.Deploy-to == 'DEV' }}
+    if: ${{ inputs.Deploy-to == 'DEV' || inputs.Deploy-to == 'QA' }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.Deploy-to }}
     steps:
