@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       name: printing env message
-    - run: mvn deploy 
+    #- run: mvn deploy 
   print2:
     if: ${{ failure() || success() }}
     needs: [prints]
