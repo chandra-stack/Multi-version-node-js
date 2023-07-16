@@ -8,6 +8,8 @@ on:
         type: environment
         description: Select the environment
         required: true  
+      Name:
+        description: Please provide the name
 env:
   name: ${{vars.MY_NAME}}
   uid: ${{ secrets.UID }}
@@ -20,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       name: printing env message
-    #- run: mvn deploy 
+    - run: ${{ inputs.Name }}
   print2:
     if: ${{ failure() || success() }}
     needs: [prints]
