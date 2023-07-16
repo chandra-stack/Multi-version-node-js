@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       name: printing env values
-    - run: ${{ env.name }}
+    - run: echo ${{ env.name }}
   print2:
     if: ${{ failure() || success() }}
     needs: [prints]
