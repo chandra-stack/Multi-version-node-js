@@ -2,6 +2,11 @@ name: Testing
 
 on:
   workflow_call:
+    inputs:
+      Name:
+        type: string
+        description: Please provide the name
+        required: true
   workflow_dispatch:
     inputs:
       Deploy-to:
