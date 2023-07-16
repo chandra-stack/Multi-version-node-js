@@ -22,6 +22,5 @@ jobs:
         echo "chandraiah2"
         echo "chandraiah3"
         echo "chandraiah4"
-    #- run: ./test.ps1
     
       
