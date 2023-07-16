@@ -10,6 +10,7 @@ on:
         required: true  
       Name:
         description: Please provide the name
+        required: true 
 env:
   name: ${{vars.MY_NAME}}
   uid: ${{ secrets.UID }}
