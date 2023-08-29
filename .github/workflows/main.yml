@@ -36,7 +36,7 @@ jobs:
       name: fourth name
     - run: |
         echo ${{github.ref_name}}
-        NOW=$(date +'%Y-%m-%dT%H:%M:%S')
+        $NOW=(date +'%Y-%m-%dT%H:%M:%S')
     - name: Echo current date
       run: echo $NOW 
   devjob:
