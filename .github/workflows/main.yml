@@ -34,7 +34,11 @@ jobs:
       name: third name
     - run: echo ${{env.name}}
       name: fourth name
-    - run: echo ${{github.ref_name}}
+    - run: |
+        echo ${{github.ref_name}}
+        echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" 
+    - name: Echo current date
+      run: echo $NOW 
   devjob:
     needs: prints
     uses: ./.github/workflows/main2.yml
