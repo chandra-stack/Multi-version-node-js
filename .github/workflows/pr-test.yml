@@ -1,0 +1,21 @@
+name: Testing multiple environment 
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  prints:
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: |
+        echo "testing"
+
+
+        
+
+
+
+
+    
