@@ -1,8 +1,8 @@
-name: Testing multiple environment 
+name: PR Testing
 
 on:
   pull_request:
-    types: [opened]
+    types: [ closed ]
 
 jobs:
   prints:
