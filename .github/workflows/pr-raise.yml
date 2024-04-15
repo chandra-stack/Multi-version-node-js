@@ -14,11 +14,10 @@ jobs:
         
     - name: Upload artifact
       uses: actions/upload-artifact@v3
-        with:
-          name: payload
-          retention-days: 15
-          path: |
-            ./payload.json
+      with:
+        name: payload
+        path: |
+          ./payload.json
 
         
 
