@@ -1,0 +1,27 @@
+name: PR Raise
+
+on:
+  push: 
+    branches: ['testing']
+jobs:
+  prints:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Raise PR
+      run: |
+        gh api \
+        --method PUT \
+        -H "Accept: application/vnd.github+json" \
+        -H "X-GitHub-Api-Version: 2022-11-28" \
+        repos/chandra-stack/Multi-version-node-js/pulls/18/merge \
+        -f "commit_title=Expand enum" -f "commit_message=Add a new value to the merge_method enum"
+      env:
+        GH_TOKEN: ${{ secrets.token }}
+
+        
+
+
+
+
+    

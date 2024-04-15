@@ -1,0 +1,32 @@
+name: Testing  
+
+on:
+  workflow_call:
+  workflow_dispatch:
+    inputs:
+      Deploy-to:
+        type: environment
+        description: Select the environment
+        required: true  
+
+env:
+  name: ${{vars.MY_NAME}}
+  uid: ${{ secrets.UID }}
+  bottle: ${{vars.BOTTLE}}
+jobs:
+  prints:
+    if: ${{ inputs.Deploy-to == 'DEV' || inputs.Deploy-to == 'QA' }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.Deploy-to }}
+    steps:
+    - uses: actions/checkout@v2
+      name: printing env values
+    - run: echo ${{ env.name }}
+  print2:
+    if: ${{ failure() || success() }}
+    needs: [prints]
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.Deploy-to }}
+    steps:
+    - run: echo "chandra"
+    

@@ -1,0 +1,22 @@
+name: PR Testing
+
+on:
+  pull_request:
+    branches: [ master ]
+    types: [ closed ]
+
+jobs:
+  prints:
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: |
+        echo "testing"
+
+
+        
+
+
+
+
+    

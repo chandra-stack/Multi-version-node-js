@@ -21,20 +21,27 @@ jobs:
         echo "from ${{ inputs.Deploy-to }} environment"
         echo $name
         echo $uid
+        
+      name: print names
+    - uses: actions/setup-node@v1
       if: ${{inputs.Deploy-to =='DEV'}}
+      with:
+        node-version: '10.x'
+        
     - run: echo ${{env.name}}
       name: second name
     - run: echo ${{env.name}}
       name: third name
     - run: echo ${{env.name}}
       name: fourth name
-    - run: echo ${{github.ref_name}}
+    - run: |
+        echo ${{github.ref_name}}
+        echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+    - name: Echo current date
+      run: echo $NOW 
   devjob:
     needs: prints
-    uses: ./.github/workflows/dotnet-test.yml
-    with:
-      chandra: "chandru"
-   
+
 
         
 
