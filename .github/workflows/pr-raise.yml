@@ -5,7 +5,7 @@ on:
     branches: ['testing']
 jobs:
   prints:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Raise PR
