@@ -16,7 +16,8 @@ jobs:
         -H "X-GitHub-Api-Version: 2022-11-28" \
         repos/chandra-stack/Multi-version-node-js/pulls \
         -f "title=Amazing new feature" -f "body=Please pull these awesome changes in!" -f "head=testing" -f "base=release/1.0"
-
+      env:
+        GH_TOKEN: ${{ secrets.token }}
 
         
 
